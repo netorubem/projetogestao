@@ -1,12 +1,42 @@
-# React + Vite
+# Projeto Gestão 📋
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema de gestão de clientes, feito com ReactJS, Vite e integração com API.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias usadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [React Router DOM](https://reactrouter.com/)
+- [Axios](https://axios-http.com/)
+- [Context API](https://react.dev/learn/scaling-up-with-reducer-and-context)
 
-## Expanding the ESLint configuration
+## 📂 Estrutura de pastas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+src/ assets/ components/ contexts/ hooks/ pages/ routes/ services/ styles/ utils/
+
+
+## 🔥 Funcionalidades
+
+- Cadastro de usuários
+- Login com persistência de sessão (`localStorage`)
+- CRUD de clientes (em construção 🚧)
+- Rotas públicas e rotas protegidas
+- Gerenciamento de autenticação
+
+## 🛠️ Como rodar o projeto
+
+```bash
+# Clone o repositório
+git clone https://github.com/netorubem/projetogestao.git
+
+# Acesse a pasta do projeto
+cd projetogestao
+
+# Instale as dependências
+npm install
+
+# Copie o arquivo .env
+cp .env.example .env
+
+# Inicie o projeto
+npm run dev
