@@ -1,55 +1,60 @@
 import React from 'react';
 import { Pie, Bar } from 'react-chartjs-2';
-import { 
-  Chart as ChartJS, 
-  ArcElement, 
-  Tooltip, 
-  Legend, 
-  CategoryScale, 
-  LinearScale, 
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
   BarElement,
-  Title 
+  Title,
 } from 'chart.js';
 import { FaImage, FaFileArchive } from 'react-icons/fa';
 
 // Registre todos os componentes necessários
 ChartJS.register(
-  ArcElement, 
-  Tooltip, 
-  Legend, 
+  ArcElement,
+  Tooltip,
+  Legend,
   CategoryScale,
-  LinearScale, 
+  LinearScale,
   BarElement,
-  Title
+  Title,
 );
 
-export default function ClientCharts({ clients = [] }) { // Valor padrão para clients
+export default function ClientCharts({ clients = [] }) {
+  // Valor padrão para clients
   // Dados processados
-  const activeClients = clients.filter(c => c.status === 'active').length;
-  const inactiveClients = clients.filter(c => c.status === 'inactive').length;
+  const activeClients = clients.filter((c) => c.status === 'active').length;
+  const inactiveClients = clients.filter((c) => c.status === 'inactive').length;
 
   // Gráfico de Pizza (Status)
   const statusData = {
     labels: ['Ativos', 'Inativos'],
-    datasets: [{
-      data: [activeClients, inactiveClients],
-      backgroundColor: ['#2dce89', '#f5365c'],
-      borderWidth: 1
-    }]
+    datasets: [
+      {
+        data: [activeClients, inactiveClients],
+        backgroundColor: ['#2dce89', '#f5365c'],
+        borderWidth: 1,
+      },
+    ],
   };
 
   // Gráfico de Barras (Cadastros)
   const signupData = {
     labels: ['Últimos 7 dias', 'Últimos 30 dias', 'Total'],
-    datasets: [{
-      label: 'Cadastros',
-      data: [
-        clients.filter(c => isRecent(c, 7)).length,
-        clients.filter(c => isRecent(c, 30)).length,
-        clients.length
-      ],
-      backgroundColor: '#5e72e4',
-    }]
+    datasets: [
+      {
+        label: 'Cadastros',
+        data: [
+          clients.filter((c) => isRecent(c, 7)).length,
+          clients.filter((c) => isRecent(c, 30)).length,
+          clients.length,
+        ],
+        backgroundColor: '#5e72e4',
+      },
+    ],
   };
 
   // Função auxiliar para filtrar clientes recentes
@@ -81,7 +86,7 @@ export default function ClientCharts({ clients = [] }) { // Valor padrão para c
         <div className="chart-wrapper">
           <h3>Status dos Clientes</h3>
           <div className="chart-container">
-            <Pie 
+            <Pie
               id="pie-chart-status"
               data={statusData}
               options={{ responsive: true }}
@@ -102,7 +107,7 @@ export default function ClientCharts({ clients = [] }) { // Valor padrão para c
               data={signupData}
               options={{
                 responsive: true,
-                scales: { y: { beginAtZero: true } }
+                scales: { y: { beginAtZero: true } },
               }}
             />
           </div>

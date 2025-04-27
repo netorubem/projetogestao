@@ -1,5 +1,5 @@
-@use "sass:color";
-@use "sass:math";
+@use 'sass:color';
+@use 'sass:math';
 
 /* Variáveis */
 $primary: #5e72e4;
@@ -20,7 +20,8 @@ $success: #28a745;
   gap: 1rem;
   margin-bottom: 2rem;
 
-  input, select {
+  input,
+  select {
     padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -37,7 +38,7 @@ $success: #28a745;
   background: white;
   border-radius: 8px;
   padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-left: 4px solid $primary;
 
   &.inactive {
@@ -94,7 +95,7 @@ $success: #28a745;
 
 .Toastify__toast {
   border-radius: 8px !important;
-  
+
   &--success {
     background: $success !important;
   }
@@ -148,7 +149,7 @@ $success: #28a745;
     border-radius: 10px;
     padding: 1.5rem;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 
     &:hover {
@@ -172,15 +173,27 @@ $success: #28a745;
       font-weight: bold;
     }
 
-    &.total { border-top: 4px solid #5e72e4; }
-    &.active { border-top: 4px solid #2dce89; }
-    &.inactive { border-top: 4px solid #f5365c; }
+    &.total {
+      border-top: 4px solid #5e72e4;
+    }
+    &.active {
+      border-top: 4px solid #2dce89;
+    }
+    &.inactive {
+      border-top: 4px solid #f5365c;
+    }
   }
 }
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .metric-card p {
@@ -212,10 +225,18 @@ $success: #28a745;
       color: currentColor;
     }
 
-    &:nth-child(1) { color: #1d6f42; } /* Excel */
-    &:nth-child(2) { color: #d33f3f; } /* PDF */
-    &:nth-child(3) { color: #1a6fdf; } /* CSV */
-    &:nth-child(4) { color: #6c757d; } /* JSON */
+    &:nth-child(1) {
+      color: #1d6f42;
+    } /* Excel */
+    &:nth-child(2) {
+      color: #d33f3f;
+    } /* PDF */
+    &:nth-child(3) {
+      color: #1a6fdf;
+    } /* CSV */
+    &:nth-child(4) {
+      color: #6c757d;
+    } /* JSON */
   }
 }
 /* Estilo do Modal */
@@ -240,7 +261,7 @@ $success: #28a745;
     max-width: 80%;
     max-height: 80vh;
     overflow-y: auto;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
 
   .modal-actions {
@@ -267,7 +288,7 @@ $success: #28a745;
     background: white;
     border-radius: 10px;
     padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     h3 {
       margin-top: 0;
@@ -334,7 +355,7 @@ $success: #28a745;
   background: white;
   border-radius: 8px;
   padding: 15px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .chart-container {
@@ -345,4 +366,4 @@ $success: #28a745;
 .global-actions {
   text-align: center;
   margin-top: 20px;
-} 
+}

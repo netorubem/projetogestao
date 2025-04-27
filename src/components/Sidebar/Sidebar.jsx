@@ -9,28 +9,32 @@ export default function Sidebar() {
   return (
     <List sx={{ width: 240, bgcolor: 'background.paper' }}>
       {/* Item Dashboard */}
-      <ListItem 
-        button 
+      <ListItem
+        button
         onClick={() => navigate(ROUTES.HOME)}
         sx={{
           '&:hover': { bgcolor: 'primary.light' },
-          '&.Mui-selected': { bgcolor: 'primary.main' }
-          }}
-        >
-        <ListItemIcon><Dashboard /></ListItemIcon>
+          '&.Mui-selected': { bgcolor: 'primary.main' },
+        }}
+      >
+        <ListItemIcon>
+          <Dashboard />
+        </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItem>
 
       {/* Item Clientes */}
-      <ListItem 
-        button 
+      <ListItem
+        button
         onClick={() => navigate(ROUTES.CLIENTS)}
         sx={{
-        '&:hover': { bgcolor: 'primary.light' },
-        '&.Mui-selected': { bgcolor: 'primary.main' }
+          '&:hover': { bgcolor: 'primary.light' },
+          '&.Mui-selected': { bgcolor: 'primary.main' },
         }}
       >
-        <ListItemIcon><People /></ListItemIcon>
+        <ListItemIcon>
+          <People />
+        </ListItemIcon>
         <ListItemText primary="Clientes" />
       </ListItem>
     </List>

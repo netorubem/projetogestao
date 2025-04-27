@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Box } from '@mui/material';
-import Sidebar from './Sidebar'; 
-import CustomAppBar from '@/components/CustomAppBar'
+import Sidebar from './Sidebar';
+import CustomAppBar from '@/components/CustomAppBar';
 
 export default function AppLayout() {
   return (

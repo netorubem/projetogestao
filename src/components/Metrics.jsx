@@ -3,8 +3,8 @@ import { FaUsers, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 export default function Metrics({ clients }) {
   const stats = {
     total: clients.length,
-    active: clients.filter(c => c.status === 'active').length,
-    inactive: clients.filter(c => c.status === 'inactive').length
+    active: clients.filter((c) => c.status === 'active').length,
+    inactive: clients.filter((c) => c.status === 'inactive').length,
   };
 
   return (

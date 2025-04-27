@@ -16,12 +16,12 @@ function ProtectedLayout() {
   const { user } = useAuth();
 
   console.log('Usuário atual:', user);
-  
+
   if (!user) {
     console.log('Redirecionando para login...');
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
-  
+
   return <AppLayout />;
 }
 

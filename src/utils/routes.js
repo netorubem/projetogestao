@@ -5,5 +5,5 @@ export const ROUTES = {
   DASHBOARD: '/dashboard',
   CLIENTS: '/clients',
   CLIENT_FORM: '/clients/new',
-  CLIENT_EDIT: '/clients/edit/:id'
+  CLIENT_EDIT: '/clients/edit/:id',
 };

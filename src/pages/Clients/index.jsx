@@ -12,7 +12,7 @@ export default function Clients() {
   const [editData, setEditData] = useState(null);
 
   const loadClients = async () => {
-    const data = await localforage.getItem('clients') || [];
+    const data = (await localforage.getItem('clients')) || [];
     setClients(data);
   };
 
@@ -22,15 +22,18 @@ export default function Clients() {
 
   const handleSave = async (client) => {
     let updatedClients;
-    const currentClients = await localforage.getItem('clients') || [];
-    
-    if (client.id && currentClients.some(c => c.id === client.id)) {
-      updatedClients = currentClients.map(c => 
-        c.id === client.id ? client : c
+    const currentClients = (await localforage.getItem('clients')) || [];
+
+    if (client.id && currentClients.some((c) => c.id === client.id)) {
+      updatedClients = currentClients.map((c) =>
+        c.id === client.id ? client : c,
       );
       toast.success('Cliente atualizado!');
     } else {
-      updatedClients = [...currentClients, { ...client, id: Date.now().toString() }];
+      updatedClients = [
+        ...currentClients,
+        { ...client, id: Date.now().toString() },
+      ];
       toast.success('Cliente adicionado!');
     }
 
@@ -44,26 +47,26 @@ export default function Clients() {
       <h1>Gestão de Clientes</h1>
       <Metrics clients={clients} />
       <ClientCharts clients={clients} />
-      
+
       {/* Formulário - Props completas */}
-      <ClientForm 
-        onSave={handleSave} 
+      <ClientForm
+        onSave={handleSave}
         editData={editData}
         onCancel={() => setEditData(null)}
       />
-      
+
       {/* Lista - Props completas */}
-      <ClientList 
+      <ClientList
         clients={clients}
         onEdit={setEditData}
         onDelete={async (id) => {
-          const updated = clients.filter(c => c.id !== id);
+          const updated = clients.filter((c) => c.id !== id);
           await localforage.setItem('clients', updated);
           loadClients();
           toast.error('Cliente excluído!');
         }}
       />
-      
+
       <ToastContainer position="bottom-right" />
     </div>
   );

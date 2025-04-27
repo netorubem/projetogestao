@@ -1,5 +1,12 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { Home, Login, Register, Dashboard, ClientList, ClientForm } from '../pages';
+import {
+  Home,
+  Login,
+  Register,
+  Dashboard,
+  ClientList,
+  ClientForm,
+} from '../pages';
 import ProtectedRoute from '../components/PrivateRoute';
 
 export default function AppRoutes() {
