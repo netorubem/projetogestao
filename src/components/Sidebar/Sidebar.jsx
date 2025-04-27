@@ -1,7 +1,7 @@
 import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { Dashboard, People } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '../utils/routes';
+import { ROUTES } from '../../utils/routes';
 
 export default function Sidebar() {
   const navigate = useNavigate();
