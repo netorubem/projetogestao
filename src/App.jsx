@@ -1,15 +1,20 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { ROUTES } from './utils/routes';
-import Home from './pages/Home';
-import Login from './pages/auth/Login';
-import Register from './pages/auth/Register';
-import ClientList from './pages/Clients/ClientList';
-import ClientForm from './pages/Clients/ClientForm';
-import AppLayout from './components/AppLayout';
-import Dashboard from './pages/Dashboard';
-import ErrorBoundary from './components/ErrorBoundary';
-import { useAuth } from './context/AuthContext'; // Importe useAuth
 import { useLocation } from 'react-router-dom';
+import { ROUTES } from '@/utils/routes';
+import './scss/main.scss';
+import theme from '@/theme';
+import MainNavbar from './components/MainNavbar';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import AppLayout from '@/components/AppLayout';
+import ClientForm from '@/pages/Clients/ClientForm';
+import ClientList from '@/pages/Clients/ClientList';
+import Dashboard from '@/pages/Dashboard/Dashboard';
+import Home from '@/pages/Home/Home';  
+import Login from '@/pages/Login/Login';
+import Register from '@/pages/Register/Register';
+import { useAuth } from '@/contexts/AuthContext';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
 function ProtectedLayout() {
   const location = useLocation();
@@ -25,28 +30,29 @@ function ProtectedLayout() {
   return <AppLayout />;
 }
 
-export default function App() {
-  return (
+function App() {
+  return (   
+    <ThemeProvider theme={theme}>
+      <CssBaseline /> {/* Reseta e padroniza estilos */}
     <BrowserRouter>
-      <ErrorBoundary>
-        <Routes>
-          {/* Rotas públicas */}
-          <Route path={ROUTES.HOME} element={<Home />} />
-          <Route path={ROUTES.LOGIN} element={<Login />} />
-          <Route path={ROUTES.REGISTER} element={<Register />} />
+      <MainNavbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-          {/* Rotas protegidas */}
-          <Route element={<ProtectedLayout />}>
-            <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
-            <Route path={ROUTES.CLIENTS} element={<ClientList />} />
-            <Route path={ROUTES.CLIENT_FORM} element={<ClientForm />} />
-            <Route path={ROUTES.CLIENT_EDIT} element={<ClientForm />} />
-          </Route>
+        <Route element={<ProtectedLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/clientes" element={<ClientList />} />
+          <Route path="/clientes/novo" element={<ClientForm />} />
+          <Route path="/clientes/editar/:id" element={<ClientForm />} />
+        </Route>
 
-          {/* Fallback */}
-          <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
-        </Routes>
-      </ErrorBoundary>
+        <Route path="*" element={<Home />} />
+      </Routes>
     </BrowserRouter>
+    </ThemeProvider>
   );
 }
+
+export default App;

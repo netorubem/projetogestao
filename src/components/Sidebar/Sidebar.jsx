@@ -1,5 +1,5 @@
 import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
-import { Dashboard, People } from '@mui/icons-material';
+import { Dashboard, People, Settings } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes';
 

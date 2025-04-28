@@ -367,3 +367,30 @@ $success: #28a745;
   text-align: center;
   margin-top: 20px;
 }
+:root {
+  --primary-color: #1A73E8;
+  --sidebar-width: 240px;
+}
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+// Variáveis (opcional, pois o MUI já tem um tema)
+$primary: #1A73E8;
+$sidebar-bg: #f8f9fa;
+
+// Estilos globais
+body {
+  background-color: #f5f7fa;
+}
+
+// Ajustes para componentes MUI
+.MuiCard-root {
+  transition: box-shadow 0.3s ease;
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+// Classes utilitárias (ex.: para espaçamentos)
+.mt-2 { margin-top: 16px !important; }
